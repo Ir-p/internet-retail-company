@@ -4,7 +4,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // find all products
   Product.findAll({
     inlcude: [{ model: Tag, through: {model: ProductTag}}]
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     })
 });
 // get all products
-router.get('/all', (req, res) => {
+router.get('/all', async (req, res) => {
   // find all products
   Product.findAll({
     inlcude: [{ model: Tag, through: {model: ProductTag}}]
